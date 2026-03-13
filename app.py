@@ -82,7 +82,7 @@ elif aba == "Data Science & Engenharia":
     st.title("📊 Manipulação de Dados de Projeto")
     st.write("Exemplo de como o Python substitui planilhas complexas por tabelas interativas.")
     
-    # Exemplo prático usando PANDAS (pra sumir o aviso do Spyder!)
+    # Exemplo prático usando PANDAS
     data = {
         'Insumo': ['Cimento', 'Aço CA-50', 'Areia', 'Brita'],
         'Quantidade': [500, 1200, 45, 38],
@@ -92,11 +92,11 @@ elif aba == "Data Science & Engenharia":
     df = pd.DataFrame(data)
     
     st.subheader("📋 Controle de Suprimentos (Automatizado)")
-    st.table(df) # Exibe a tabela bonitinha
+    st.table(df) 
     
     st.info("💡 Imagine automatizar a leitura de 1.000 itens de um orçamento em segundos. É isso que eu faço.")
 
-# --- ABA 3: TCC ---
+# --- ABA 3: TCC (AJUSTADA PARA IPHONE) ---
 elif aba == "Pesquisa e Sinais (TCC)":
     st.title("🎓 Pesquisa Técnica Avançada")
     st.write("**Detecção de Danos via Análise de Vibração**")
@@ -105,7 +105,11 @@ elif aba == "Pesquisa e Sinais (TCC)":
     Este projeto foi meu laboratório para dominar **Processamento de Dados**. 
     Através dele, aprendi a lidar com sensores MEMS e Transformada de Fourier para resolver problemas estruturais.
     """)
-    st.latex(r"X(f) = \int_{-\infty}^{\infty} x(t) e^{-i 2 \pi f t} dt")
+    
+    st.markdown("#### 📐 Equação da Transformada de Fourier:")
+    # Formatação robusta para evitar erro de Syntax no Safari/iPhone
+    st.info("X(f) = ∫ x(t) e^(-i 2π f t) dt")
+    
     st.write("> *Este projeto demonstra minha capacidade de aprender tecnologias complexas e aplicá-las na Engenharia Civil.*")
 
 # --- ABA 4: GITHUB ---
@@ -116,4 +120,5 @@ elif aba == "Portfólio GitHub":
 
 # --- RODAPÉ ---
 st.write("---")
-st.write("📍 Dracena - SP | 📩 caio.fukushima@exemplo.com")
+st.write("📍 Dracena - SP")
+st.markdown("📩 **E-mail:** [caio.fukushima@exemplo.com](mailto:caio.fukushima@exemplo.com)")
