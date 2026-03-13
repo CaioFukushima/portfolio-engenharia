@@ -147,11 +147,9 @@ def analisar_vibracao(sinal, fs):
 elif aba == "GitHub":
     st.title("💻 Portfólio de Código")
     st.write("Acesse meus repositórios com estudos e scripts de automação:")
-    # Lembre-se de verificar se seu link do github é este mesmo
     st.markdown("### [🔗 Visitar meu GitHub](https://github.com/caiofukushima)")
 
 # --- RODAPÉ ---
 st.write("---")
 st.write("📍 Dracena - SP")
-st.markdown("📩 **E-mail:** [caio.fukushima@exemplo.com](mailto:caio.fukushima@exemplo.com)")
-
+st.markdown("📩 **E-mail:** [caiofukushima21@gmail.com](mailto:caiofukushima21@gmail.com)")
