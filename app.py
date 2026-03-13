@@ -106,7 +106,7 @@ elif aba == "Mini Projeto: Automação":
         st.write("Leitura automática de Notas Fiscais para atualizar o estoque e o custo real da obra sem erro humano.")
     with col_c:
         st.markdown("**3. Interoperabilidade**")
-        st.write("Converter relatórios de outros softwares para formatos compatíveis com o ecossistema da empresa (ex: AltoQI).")
+        st.write("Converter relatórios de outros softwares para formatos compatíveis com o ecossistema da empresa.")
 
     st.info("✅ Resultado: O engenheiro deixa de perder tempo digitando e passa a focar na análise técnica.")
 
@@ -154,3 +154,4 @@ elif aba == "GitHub":
 st.write("---")
 st.write("📍 Dracena - SP")
 st.markdown("📩 **E-mail:** [caio.fukushima@exemplo.com](mailto:caio.fukushima@exemplo.com)")
+
