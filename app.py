@@ -5,12 +5,12 @@ import pandas as pd
 
 # 1. Configuração da página
 st.set_page_config(
-    page_title="Caio Fukushima | Eng. Civil & Python", 
-    page_icon="🐍", 
+    page_title="Caio Fukushima | Product & Eng. Tech", 
+    page_icon="🏗️", 
     layout="wide"
 )
 
-# 2. Estilo CSS
+# 2. Estilo CSS - Foco em Profissionalismo e Tecnologia
 st.markdown("""
     <style>
         [data-testid="stSidebar"] { background-color: #0A192F !important; }
@@ -46,57 +46,79 @@ aba = st.sidebar.radio("Ir para:", [
     "Portfólio GitHub"
 ])
 
-# --- ABA 1: PERFIL ---
+# --- ABA 1: PERFIL (Focado em Product Analyst na AltoQI) ---
 if aba == "Perfil Profissional":
     st.title("🏗️ Caio Fukushima")
     st.subheader("Engenheiro Civil & Desenvolvedor de Soluções Tech")
     
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.info("📸 [Espaço para Foto]")
+        st.info("📸 [Espaço para Foto Profissional]")
     
     with col2:
         st.write("""
-        Diferente do engenheiro tradicional, meu foco é a automação e digitalização da construção. 
-        Utilizo Python para criar fluxos de trabalho inteligentes e precisos.
+        Sou um entusiasta da tecnologia aplicada à construção. Meu diferencial é a capacidade de unir 
+        o conhecimento técnico da Engenharia Civil com o poder da análise de dados e automação em Python.
+        
+        Busco atuar na intersecção entre engenharia e desenvolvimento de software, ajudando a criar 
+        ferramentas que tornem o trabalho do engenheiro mais eficiente e orientado a dados.
         """)
-        st.success("🎯 Objetivo: Trainee em Inovação ou Gestão de Dados (BIM/VDC).")
+        st.success("🎯 Foco: Product Analyst | Inteligência em Software para Engenharia")
+
+    st.write("---")
+    st.subheader("🛠️ Minha Stack Tecnológica")
+    
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.markdown("**Engenharia**")
+        st.caption("BIM (Eberick e QiBuilder), Projetos Estruturais, Alvenaria Estrutural.")
+    with c2:
+        st.markdown("**Desenvolvimento**")
+        st.caption("Python (Scripts de Automação), Streamlit (Dashboards), Lógica de Produto.")
+    with c3:
+        st.markdown("**Dados**")
+        st.caption("Pandas, Visualização de Dados, Análise de Requisitos técnicos.")
 
 # --- ABA 2: DATA SCIENCE ---
 elif aba == "Data Science & Engenharia":
-    st.title("📊 Manipulação de Dados")
+    st.title("📊 Análise de Dados e Automação")
+    st.write("Abaixo, um exemplo de como utilizo Python (Pandas) para gerenciar informações de projeto de forma dinâmica:")
+    
     data = {
-        'Insumo': ['Cimento', 'Aço', 'Areia', 'Brita'],
+        'Insumo': ['Cimento', 'Aço CA-50', 'Areia', 'Brita'],
         'Quantidade': [500, 1200, 45, 38],
         'Status': ['Entregue', 'Pendente', 'Entregue', 'Atrasado']
     }
     df = pd.DataFrame(data)
     st.table(df) 
-    st.info("💡 Automação de extração de dados e relatórios gerenciais.")
+    st.info("💡 Soluções como esta reduzem erros manuais em orçamentos e cronogramas.")
 
-# --- ABA 3: TCC (VERSÃO SEM ERROS) ---
+# --- ABA 3: TCC (Sem erro de iPhone) ---
 elif aba == "Pesquisa e Sinais (TCC)":
-    st.title("🎓 Pesquisa Técnica")
-    st.write("**Detecção de Danos via Análise de Vibração**")
+    st.title("🎓 Pesquisa e Engenharia Diagnóstica")
+    st.write("**Detecção de Danos Estruturais via Análise de Vibração**")
     
     st.write("""
-    Este projeto foi meu laboratório para dominar o Processamento de Dados. 
-    Trabalhei com sensores e algoritmos para identificar falhas estruturais.
+    Neste projeto, utilizei sensores acelerômetros para coletar dados de vibração em estruturas. 
+    O grande desafio foi a criação de um algoritmo em Python capaz de processar esses sinais e 
+    identificar padrões de falha.
     """)
     
-    # Texto puro, sem Latex, sem Markdown matemático
-    st.subheader("📐 Metodologia:")
-    st.write("A Transformada de Fourier foi aplicada para converter os sinais do domínio do tempo para o domínio da frequência, permitindo a identificação de anomalias na assinatura vibracional da estrutura.")
+    st.subheader("📐 Metodologia Tech:")
+    st.write("""
+    Apliquei a **Transformada de Fourier** para converter os dados brutos (tempo) em frequências. 
+    Isso permite identificar se a 'assinatura' da estrutura mudou, indicando uma possível patologia.
+    """)
     
-    st.write("---")
-    st.write("> Este projeto demonstra minha capacidade técnica com Python aplicado à engenharia.")
+    st.info("Nota: Este projeto demonstra minha competência em transformar dados complexos em insights acionáveis.")
 
 # --- ABA 4: GITHUB ---
 elif aba == "Portfólio GitHub":
     st.title("💻 Meu Código")
-    st.write("Acesse meus repositórios no link abaixo:")
-    st.markdown("[🔗 Visitar Perfil no GitHub](https://github.com/seu-usuario)")
+    st.write("Acompanhe meus estudos e projetos de automação:")
+    # Lembre-se de trocar 'seu-usuario' pelo seu nome real do GitHub
+    st.markdown("### [🔗 Acessar meu GitHub](https://github.com/caiofukushima)")
 
 # --- RODAPÉ ---
 st.write("---")
-st.write("📍 Dracena - SP | 📩 caio.fukushima@exemplo.com")
+st.markdown("📍 Dracena - SP | 📩 **Contato:** [caio.fukushima@exemplo.com](mailto:caio.fukushima@exemplo.com)")
