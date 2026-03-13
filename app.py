@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# 2. Estilo CSS Customizado
+# 2. Estilo CSS
 st.markdown("""
     <style>
         [data-testid="stSidebar"] { background-color: #0A192F !important; }
@@ -34,7 +34,7 @@ st.sidebar.write("---")
 
 aba = st.sidebar.radio("Ir para:", [
     "Perfil Profissional", 
-    "Data Science (Estudos)", 
+    "Mini Projeto: Automação", 
     "Projeto de TCC (SHM)", 
     "GitHub"
 ])
@@ -50,41 +50,50 @@ if aba == "Perfil Profissional":
     
     with col2:
         st.write("""
-        Atualmente cursando Engenharia Civil (conclusão em 2026). Meu diferencial é a busca por 
-        soluções que integram a engenharia tradicional com a agilidade do **Python**.
-        
-        Tenho grande interesse no desenvolvimento de softwares que otimizam o dia a dia do engenheiro, 
-        especialmente na área de monitoramento e análise de dados estruturais.
+        Atualmente cursando Engenharia Civil (conclusão em 2026). Meu foco é integrar a engenharia 
+        tradicional com o poder do **Python** para criar ferramentas que otimizam o fluxo de trabalho.
         """)
-        st.success("🎯 Objetivo: Atuar como Analista de Produto Jr ou Trainee em Inovação Tecnológica.")
+        st.success("🎯 Objetivo: Atuar em times de Produto ou Inovação em empresas de Software para Engenharia.")
 
-    st.write("---")
-    st.subheader("🚀 Frentes de Estudo")
+# --- ABA 2: MINI PROJETO (EXTRATOR DE DADOS) ---
+elif aba == "Mini Projeto: Automação":
+    st.title("📊 Extrator de Insumos (PDF para Dados)")
+    st.write("### Problema: Dados de orçamento 'presos' em arquivos estáticos.")
     
-    c1, c2 = st.columns(2)
-    with c1:
-        st.markdown("**Engenharia de Estruturas**")
-        st.caption("Foco em análise dinâmica, SHM (Monitoramento de Saúde Estrutural) e teoria de vigas.")
-    with c2:
-        st.markdown("**Programação Aplicada**")
-        st.caption("Uso de Python para automação de tarefas e processamento de sinais (FFT).")
+    st.markdown("""
+    Este projeto demonstra um algoritmo que desenvolvi para **automatizar a leitura de listas de materiais**. 
+    O Python extrai as informações de documentos estáticos e as organiza em tabelas dinâmicas.
+    """)
 
-# --- ABA 2: DATA SCIENCE ---
-elif aba == "Data Science (Estudos)":
-    st.title("📊 Estudos de Automação e Dados")
-    st.write("Exemplo de manipulação de dados de materiais, substituindo fluxos manuais por automação:")
-    
-    data = {
-        'Material': ['Aço CA-50', 'Concreto Fck 30', 'Areia Média', 'Madeira'],
-        'Quantidade': [1200, 45, 12, 110],
-        'Unidade': ['kg', 'm³', 'm³', 'm²'],
-        'Status': ['Ok', 'Pendente', 'Atrasado', 'Ok']
+    # Simulando a função de extração para o portfólio
+    dados = {
+        'Código': ['001', '002', '003', '004'],
+        'Descrição do Insumo': ['Cimento CP-II 50kg', 'Aço CA-50 10mm', 'Areia Média Lavada', 'Brita 1'],
+        'Qtd Original (PDF)': ['150.00', '1.250,50', '12,0', '10,5'],
+        'Qtd Tratada (Python)': [150.0, 1250.5, 12.0, 10.5]
     }
-    df = pd.DataFrame(data)
-    st.table(df) 
-    st.info("💡 Utilizo bibliotecas como Pandas para organizar dados complexos em informações acionáveis.")
+    df_extraido = pd.DataFrame(dados)
 
-# --- ABA 3: TCC (VERSÃO ESTRATÉGICA) ---
+    st.subheader("📋 Resultado da Extração Automática")
+    st.dataframe(df_extraido, use_container_width=True)
+
+    st.success("✅ **Ganho de Eficiência:** Redução drástica no erro humano e tempo de transcrição de orçamentos.")
+    
+    with st.expander("🔍 Ver lógica por trás (Python)"):
+        st.code("""
+import pdfplumber
+import pandas as pd
+
+# Exemplo de como o script processa o documento
+def processar_pdf(caminho):
+    with pdfplumber.open(caminho) as pdf:
+        tabela = pdf.pages[0].extract_table()
+        df = pd.DataFrame(tabela[1:], columns=tabela[0])
+        # Limpeza e conversão de tipos
+        return df
+        """, language='python')
+
+# --- ABA 3: TCC ---
 elif aba == "Projeto de TCC (SHM)":
     st.title("🎓 Monitoramento Estrutural Inteligente")
     st.write("### Detecção de Danos via Sensores MEMS e Python")
@@ -92,45 +101,27 @@ elif aba == "Projeto de TCC (SHM)":
     st.markdown("""
     **Contextualização:** No Brasil, mais de 30% das pontes e viadutos públicos possuem comprometimento estrutural. 
     A inspeção visual é limitada e sistemas de monitoramento (SHM) tradicionais são extremamente caros.
-    
-    **A Solução Proposta:** Validar o uso de sensores de baixo custo (MEMS de smartphones) integrados ao processamento de dados em Python.
     """)
 
-    st.warning("🔍 **Pergunta Norteadora:** O uso de sensores MEMS, associado ao processamento por FFT em Python, é eficaz para identificar variações na frequência natural de vigas e diferenciar o estado íntegro do danificado?")
+    st.warning("🔍 **Pergunta Norteadora:** O uso de sensores MEMS, associado ao processamento por FFT em Python, é eficaz para identificar variações na frequência natural de vigas?")
 
     st.write("---")
     
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("#### 🛠️ Metodologia Aplicada")
-        st.write("""
-        - **Modelo:** Vigas metálicas em balanço (Euler-Bernoulli).
-        - **Aquisição:** Coleta de vibrações reais via smartphones.
-        - **Algoritmo:** Transformada Rápida de Fourier (FFT) para análise modal.
-        """)
+        st.markdown("#### 🛠️ Metodologia")
+        st.write("- Coleta de vibrações reais via smartphones.\n- Algoritmo FFT para análise modal.")
     
     with col2:
-        st.markdown("#### 🐍 Lógica de Processamento")
-        st.code("""
-# Exemplo do script de análise FFT
-import numpy as np
-
-def detectar_frequencia(sinal, fs):
-    # Converte sinal do tempo para frequência
-    valores_fft = np.abs(np.fft.fft(sinal))
-    freqs = np.fft.fftfreq(len(sinal), 1/fs)
-    return freqs, valores_fft
-        """, language='python')
-
-    st.write("> *Este projeto une a física da engenharia com a precisão da computação para prever falhas antes que elas aconteçam.*")
+        st.markdown("#### 🐍 Ferramenta")
+        st.code("import numpy as np\n# FFT em Python", language='python')
 
 # --- ABA 4: GITHUB ---
 elif aba == "GitHub":
     st.title("💻 Portfólio de Código")
-    st.write("Veja como organizo meus estudos e scripts de engenharia:")
+    st.write("Acesse meus repositórios e scripts:")
     st.markdown("### [🔗 Acessar meu Perfil no GitHub](https://github.com/caiofukushima)")
 
 # --- RODAPÉ ---
 st.write("---")
-st.write("📍 Dracena - SP")
-st.markdown("📩 **Contato:** [caio.fukushima@exemplo.com](mailto:caio.fukushima@exemplo.com)")
+st.write("📍 Dracena - SP | 📩 **Contato:** caio.fukushima@exemplo.com")
