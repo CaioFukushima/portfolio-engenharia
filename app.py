@@ -53,7 +53,11 @@ if aba == "Perfil Profissional":
     
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.info("📸 [Espaço para sua Foto Profissional]")
+        # Tenta carregar a foto que você tem na pasta
+        try:
+            st.image("minha_foto.jpg", caption="Caio Fukushima", use_container_width=True)
+        except:
+            st.info("📸 Adicione o arquivo 'minha_foto.jpg' ao seu GitHub para exibir sua foto aqui.")
     
     with col2:
         st.write(f"""
